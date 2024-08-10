@@ -1,3 +1,64 @@
+
+
+1. create-react-app name
+2. npm run start
+3. replace package.json: 
+https://gist.githubusercontent.com/xternet/188dc11be6612a7d0b29a61d62c4d9d9/raw/ba3a4bd771708bb862b961612417c6cd70485bb9/package.json
+
+5. npm install
+6. npx truffle init
+7. create .babelrc file 
+	{
+	"presets": ["es2015", "stage-2", "stage-3"]
+	}
+
+8. replace truffle-config.js
+
+require("babel-register");
+require("babel-polyfill");
+require("dotenv").config();
+
+module.exports = {
+  networks: {
+    development: {
+      host: "127.0.0.1",
+      port: 7545,
+      network_id: "*",
+    },
+  },
+
+  contracts_directory: "./src/contracts/",
+  contracts_build_directory: "./src/abis/",
+
+  compilers: {
+    solc: {
+      optimizer: {
+        enabled: true,
+        runs: 200,
+      },
+    },
+  },
+};
+
+
+9. mv contracts/ src/ 
+10. create .env file
+11. add .env to .gitignore
+12. Create Token.sol in contracts and paste token into it. Change token name
+13. Create Token.test.js in test and paste test into it
+14. create helpers.js in test and paste into it
+15. npx truffle test
+16. Once ready to add to blockchain "npx truffle migrate --reset"
+17. Make scripts directory and creaet file "seed-exchange.js"
+18. npx truffle exec scripts/seed-exchange.js
+19. copy and paste index.js
+20. mkdir components and move app.js & app.css into it
+21. copy and paste app.js & app.css
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
